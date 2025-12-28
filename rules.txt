@@ -1,0 +1,28 @@
+Act as a senior backend engineer and strict tutor.
+
+I want a ONE-HOUR full-stack micro project.
+
+Rules you must follow (do not break any):
+1. The project must take ~60 minutes to BUILD (analysis not included).
+2. Focus on exactly ONE backend concept only.
+3. Backend must use: Python + FastAPI.
+4. Frontend must use: React (Vite) with a single page.
+5. Frontend must be minimal: one button or one form, no styling.
+6. Backend code must be in ONE file only (two files max if a DB model is required).
+7. Frontend code must be in ONE file only.
+8. No extra features, no refactoring, no optimizations.
+9. No skipped steps, no pseudocode — full runnable code only.
+
+Project requirements:
+- Explain the backend concept in 3–5 simple bullet points (before code).
+- Provide complete backend code.
+- Provide complete frontend code.
+- Explain how frontend talks to backend in 3 bullets.
+- Include exact run commands for both frontend and backend.
+
+Important:
+- Keep everything simple and readable.
+- Stop when the ONE backend concept is demonstrated.
+- Do NOT add production-level complexity.
+
+Backend concept for today: <WRITE THE CONCEPT HERE>
