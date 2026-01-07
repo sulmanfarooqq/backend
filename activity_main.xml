@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This XML defines a simple Android screen layout.
+    It uses different UI components like Toolbar, Buttons, TextView, Switch, RecyclerView, etc.
+    Each view is nested inside LinearLayouts to organize the screen vertically.
+-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"        <!-- The layout takes full width of the screen -->
+    android:layout_height="match_parent"       <!-- The layout takes full height of the screen -->
+    android:orientation="vertical"             <!-- All child views are placed vertically -->
+    android:padding="16dp"                     <!-- Add space (padding) around all edges -->
+    android:background="@android:color/white"> <!-- White background color -->
+
+    <!-- ====================== APP TOOLBAR ====================== -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"                          <!-- Unique ID for reference in code -->
+        android:layout_width="match_parent"                <!-- Full width toolbar -->
+        android:layout_height="?attr/actionBarSize"         <!-- Standard height for toolbar -->
+        android:background="@color/design_default_color_primary"  <!-- Toolbar background color -->
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"  <!-- Dark text/icons -->
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />       <!-- Light popup menu theme -->
+
+
+    <!-- ====================== SCROLLABLE AREA ====================== -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Container for all content that can scroll -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ====================== TITLE TEXT ====================== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Main Title"               <!-- Text displayed -->
+                android:textSize="24sp"                 <!-- Font size -->
+                android:textStyle="bold"                <!-- Bold text -->
+                android:textColor="@android:color/black"<!-- Black color -->
+                android:layout_marginBottom="16dp" />   <!-- Space below title -->
+
+            <!-- ====================== INPUT FIELD ====================== -->
+            <!-- TextInputLayout is a container for EditText with better UI -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <!-- User input field -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter text here" />    <!-- Placeholder text -->
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- ====================== BUTTONS ROW ====================== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <!-- First button -->
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="0dp"          <!-- Width controlled by weight -->
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"           <!-- Equal width sharing -->
+                    android:text="Normal Button"
+                    android:layout_marginEnd="8dp" />   <!-- Small gap to the right -->
+
+                <!-- Second button -->
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Secondary"
+                    android:backgroundTint="@color/design_default_color_secondary"
+                    android:layout_marginStart="8dp" />  <!-- Small gap to the left -->
+            </LinearLayout>
+
+            <!-- ====================== OPTIONS: CHECKBOXES + RADIO ====================== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <!-- Checkboxes allow multiple selections -->
+                <CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check Box 1"
+                    android:checked="true" />            <!-- Checked by default -->
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Check Box 2" />
+
+                <!-- Label for radio buttons -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Radio Group:"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- RadioGroup allows selecting only one option at a time -->
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Option 1"
+                        android:checked="true" />          <!-- Default selected -->
+
+                    <RadioButton
+                        android:id="@+id/radio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Option 2" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <!-- ====================== SWITCHES SECTION ====================== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <Switch
+                    android:id="@+id/switch1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Toggle Switch"
+                    android:checked="true" />              <!-- On by default -->
+
+                <ToggleButton
+                    android:id="@+id/toggleButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textOn="ON"
+                    android:textOff="OFF"
+                    android:layout_marginTop="8dp" />       <!-- Space above -->
+            </LinearLayout>
+
+            <!-- ====================== IMAGE ROW ====================== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <!-- First image -->
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@android:drawable/ic_menu_gallery" <!-- Default icon -->
+                    android:scaleType="centerCrop"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Second image -->
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:scaleType="fitCenter"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- ====================== PROGRESS + SLIDER ====================== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+
+                <!-- Progress bar title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Progress Indicator"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Circular progress bar -->
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    style="@style/Widget.AppCompat.ProgressBar" />
+
+                <!-- Seek bar title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seek Bar"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Slider bar -->
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:progress="50"   <!-- Starting position -->
+                    android:max="100" />    <!-- Max value -->
+            </LinearLayout>
+
+            <!-- ====================== DROPDOWN (SPINNER) ====================== -->
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
+
+            <!-- ====================== LIST HEADER ====================== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="List of Items"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- RecyclerView for displaying scrollable lists -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@android:drawable/dialog_frame"
+                android:layout_marginBottom="16dp" />
+
+            <!-- ====================== MATERIAL CARD ====================== -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="8dp"           <!-- Shadow depth -->
+                app:cardCornerRadius="8dp">       <!-- Rounded corners -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Title"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="This is a card with some sample content to demonstrate the CardView component in Android." />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ====================== BOTTOM NAVIGATION ROW ====================== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/design_default_color_surface"
+                android:padding="8dp">
+
+                <!-- Home button (text-based) -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Home"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true" />
+
+                <!-- Profile button -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Profile"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true" />
+
+                <!-- Settings button -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Settings"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true" />
+            </LinearLayout>
+
+        </LinearLayout> <!-- End inner vertical container -->
+    </ScrollView> <!-- End scrollable content -->
+</LinearLayout> <!-- End root layout -->
